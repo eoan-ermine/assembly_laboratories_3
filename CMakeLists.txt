@@ -14,9 +14,8 @@ set(ASSEMBLY_FILES
 )
 
 enable_language(ASM_NASM)
-set(CMAKE_ASM_NASM_COMPILE_OBJECT "nasm <INCLUDES> <FLAGS> -o <OBJECT> <SOURCE>")
+set(CMAKE_ASM_NASM_COMPILE_OBJECT "nasm -f elf64 -o <OBJECT> <SOURCE>")
 set_source_files_properties(${ASSEMBLY_FILES} PROPERTIES LANGUAGE ASM_NASM)
 
 add_executable(assembly_laboratories_3 ${ASSEMBLY_FILES} ${SOURCE_FILES})
-set_target_properties(assembly_laboratories_3 PROPERTIES NASM_OBJ_FORMAT elf64)
 target_link_libraries(assembly_laboratories_3)
